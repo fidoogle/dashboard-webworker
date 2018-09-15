@@ -22,7 +22,8 @@ Vue.filter("formatDate", function(value) {
   }
 });
 
-/* Create Vue app for each component instance */
+/* Create Vue app for each component instance 
+This is a pattern for having multiple instances of the same dashboard on the same page*/
 const x = document.querySelectorAll(".dashboard_component");
 
 for (var i = 0; i < x.length; i++) {
