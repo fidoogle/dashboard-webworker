@@ -4,7 +4,7 @@
       <option v-for="(value, key) in getAreas" :key="key" :value="value.ID" :selected="selected==value.ID">{{value.Title}}</option>
     </select>
     <div class="area-select">
-      <div class="area-select-row">
+      <div class="area-select-title">
         <div class="area-title"><b>Area</b></div>
         <div class="area-complete"><b>{{stageTitle}}</b></div>
       </div>
@@ -97,11 +97,12 @@ export default {
 </script>
 <style>
 .area-select {
+  position: relative;
+  top: 200px;
   z-index: 10;
   width: 360px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  padding: 10px;
   background-color: white;
   -webkit-box-shadow: -1px 10px 39px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: -1px 10px 39px 0px rgba(0,0,0,0.75);
@@ -113,7 +114,8 @@ export default {
   justify-content: flex-start;
   align-items: flex-start;
 }
-.area-select-row {
+.area-select-row, .area-select-title {
+  padding: 5px 10px 5px 10px;
   flex: 0 1 auto;
   align-self: stretch;
 
@@ -122,6 +124,10 @@ export default {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+}
+.area-select-row:hover {
+  cursor: pointer;
+  background-color: #eee;
 }
 .area-title {
   color: black;
