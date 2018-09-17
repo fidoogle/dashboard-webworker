@@ -1,7 +1,7 @@
 <template>
   <div>
 
-        <div class="area-select" v-show="getStageHover!==-1" style="left: 50px;">
+        <div class="area-select" v-show="getStageHover!==-1" :style="{ left: leftOffset + 'px' }">
           <div class="area-select-title">
             <div class="area-title-header">Area</div>
             <div class="area-complete-header">Completed</div>
@@ -23,6 +23,10 @@ export default {
 
     computed: {
       ...Vuex.mapGetters(["getAreas", "getSelectedArea", "getSelectedStage", "getStages", "getStageHover", "getStagePercents"]),
+
+      leftOffset() {
+        return (this.getStageHover * 200 - 280); //For simplicity assumes stage IDs are integers starting at 1
+      },
 
       stagePercents() {
         const percents = this.getStagePercents.filter((item) => {
