@@ -22,7 +22,7 @@ import Vuex from 'vuex';
 export default {
 
     computed: {
-      ...Vuex.mapGetters(["getAreas", "getSelectedArea", "getSelectedStage", "getStages", "getStageHover", "getStagePercents"]),
+      ...Vuex.mapGetters(["getAreas", "getStageHover", "getStagePercents"]),
 
       leftOffset() {
         return (this.getStageHover * 200 - 280); //For simplicity assumes stage IDs are integers starting at 1
@@ -58,9 +58,9 @@ export default {
   border: 1px solid #ccc;
   border-radius: 6px;
   background-color: white;
-  -webkit-box-shadow: -1px 10px 39px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: -1px 10px 39px 0px rgba(0,0,0,0.75);
-  box-shadow: -1px 10px 39px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: -1px 10px 39px 0px rgba(0,0,0,0.55);
+  -moz-box-shadow: -1px 10px 39px 0px rgba(0,0,0,0.55);
+  box-shadow: -1px 10px 39px 0px rgba(0,0,0,0.55);
 
   display: flex;
   flex-direction: column;

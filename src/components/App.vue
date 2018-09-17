@@ -76,7 +76,6 @@ export default {
     components: {
         "area-list": AreaList,
         "de-tabs": DeTabs,
-        "de-tab-menus": DeTabMenus,
         "table-data": TableData,
         "progress-bar": ProgressBar
     },
