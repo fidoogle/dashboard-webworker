@@ -1,7 +1,8 @@
 <template>
-  <div class="de-tabs de-width-headers">
+  <div class="de-tabs de-width-headers de-tab-menus">
     <div class="de-tab" :class="{selected: value.ID===getSelectedStage}" 
-    v-for="(value, key) in getStages" :key="key" @click="setStage(value.ID)">
+    v-for="(value, key) in getStages" :key="key" @click="setStage(value.ID)" @mouseover="setStageHover(value.ID)" @mouseout="setStageHover(-1)">
+
         <div>{{value.Title}}</div>
         <div><pie-chart-enter :index="key" :filterStagePercents="filterStagePercents"></pie-chart-enter></div>
 
@@ -9,8 +10,10 @@
           <div>{{ showStagePercents[key].percent }}</div>
           <div>Complete</div>
         </div>
-       
+        
     </div>
+
+    <de-tab-menus/>
   </div>
 </template>
 
@@ -18,18 +21,20 @@
 import Vuex from 'vuex';
 import _ from "lodash";
 import PieChartEnter from '@/components/PieChartEnter';
+import DeTabMenus from '@/components/DeTabMenus';
 
 export default {
 
     components: {
-        "pie-chart-enter": PieChartEnter
+        "pie-chart-enter": PieChartEnter,
+        "de-tab-menus": DeTabMenus
     },
 
     computed: {
         ...Vuex.mapGetters(["getSelectedArea", "getSelectedStage", "getStages", "getStagePercents"]),
 
         filterStagePercents() {
-            let selectedArea = this.getSelectedArea; console.log('selectedArea2:', selectedArea, ' getStagePercents2', this.getStagePercents);
+            let selectedArea = this.getSelectedArea;
             let filterByArea = _.filter(this.getStagePercents, function(item) {
                 return (item.areaID == selectedArea);
             });
@@ -71,7 +76,7 @@ export default {
     },
 
     methods: {
-        ...Vuex.mapMutations(["setFromRoute", "setLoading", "setSelectedStage"]),
+        ...Vuex.mapMutations(["setFromRoute", "setLoading", "setSelectedStage", "setStageHover"]),
 
         setStage(id) {
             this.setFromRoute('change-stage');
@@ -106,3 +111,8 @@ export default {
     }
 }
 </script>
+<style>
+.de-tab-menus {
+  position: relative;
+}
+</style>

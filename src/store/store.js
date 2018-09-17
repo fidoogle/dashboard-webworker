@@ -25,6 +25,7 @@ export default function createStore(appId) {
       selectedArea: -1,
       selectedStage: 3,
       stages: [],
+      stageHover: -1,
       stagePercents: [],
       statuses: [],
       statusesFiltered: []
@@ -77,6 +78,9 @@ export default function createStore(appId) {
       },
       getStages(state) {
         return state.stages;
+      },
+      getStageHover(state) {
+        return state.stageHover;
       },
       getStagePercents(state) {
         return state.stagePercents;
@@ -173,6 +177,9 @@ export default function createStore(appId) {
       },
       setStages(state, payload) {
         state.stages = payload;
+      },
+      setStageHover(state, payload) {
+        state.stageHover = payload;
       },
       setStagePercents(state, payload) {
         state.stagePercents = payload;

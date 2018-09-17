@@ -60,6 +60,7 @@
 import Vuex from 'vuex';
 import AreaList from '@/components/AreaList';
 import DeTabs from '@/components/DeTabs';
+import DeTabMenus from '@/components/DeTabMenus';
 import TableData from '@/components/TableData';
 import ProgressBar from '@/components/ProgressBar';
 import axios from 'axios';
@@ -75,6 +76,7 @@ export default {
     components: {
         "area-list": AreaList,
         "de-tabs": DeTabs,
+        "de-tab-menus": DeTabMenus,
         "table-data": TableData,
         "progress-bar": ProgressBar
     },
